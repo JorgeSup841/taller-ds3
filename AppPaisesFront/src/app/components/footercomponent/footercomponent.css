@@ -1,21 +1,29 @@
-footer {
+.footer {
     background-color: #111827;
-    border-top: 3px solid #06b6d4 !important;
-    color: #e5e7eb;
-    padding: 1.8rem 2rem;
-    margin-top: -500px;
-    width: 100%;
-
+    border-top: 1px solid #374151;
 }
 
-footer a,
-footer span {
-    color: #9ca3af !important;
+.footer-brand {
+    color: #06b6d4;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-brand:hover {
+    color: #0891b2;
+}
+
+.footer-text {
+    color: #9ca3af;
+}
+
+.footer-social {
+    color: #9ca3af;
+    font-size: 1.3rem;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
-
-footer a:hover {
-    color: #3b82f6 !important;
+.footer-social:hover {
+    color: #06b6d4;
 }

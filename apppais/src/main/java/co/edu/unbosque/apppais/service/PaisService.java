@@ -1,6 +1,5 @@
 package co.edu.unbosque.apppais.service;
 
-import co.edu.unbosque.apppais.controller.PaisController;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,16 +8,15 @@ import org.springframework.stereotype.Service;
 
 import co.edu.unbosque.apppais.entity.Pais;
 import co.edu.unbosque.apppais.respository.PaisRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PaisService {
 
-	
 	@Autowired
 	private PaisRepository paisRepo;
 
 	public PaisService() {
-		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -67,14 +65,14 @@ public class PaisService {
 			temp.setNombre(newPais.getNombre());
 			temp.setCapital(newPais.getCapital());
 			temp.setMoneda(newPais.getMoneda());
-			temp.setIndioma(newPais.getIndioma());
+			temp.setIdioma(newPais.getIdioma());
 			temp.setCantidadHabitante(newPais.getCantidadHabitante());
 
 			paisRepo.save(temp);
 
 			return 0;
 
-		} else if (!encontrado.isPresent() && newPais == null) {
+		} else if (!encontrado.isPresent() && newPais != null) {
 			paisRepo.save(newPais);
 			return 1;
 
@@ -82,20 +80,50 @@ public class PaisService {
 			return 2;
 		}
 	}
-	
-	
+
 	public int eliminarPorNombre(String nombre) {
-		paisRepo.deleteByNombre(nombre);
-		return 0 ;
-		
-		
+		if (paisRepo.existsByNombre(nombre)) {
+			paisRepo.deleteByNombre(nombre);
+			return 0;
+		} else {
+			return 1;
+		}
+
 	}
-	
+
 	public int eliminarPorCapital(String capital) {
-		paisRepo.deleteByCapital(capital);
-		
-		
-		return 0;
+		if (paisRepo.existsByCapital(capital)) {
+			paisRepo.deleteByCapital(capital);
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	public int actualizarPorNombre(String nombre, Pais newPais) {
+
+		Optional<Pais> encontrado = paisRepo.findByNombre(nombre);
+
+		if (encontrado.isPresent() && newPais != null) {
+			Pais temp = encontrado.get();
+			temp.setNombre(newPais.getNombre());
+			temp.setCapital(newPais.getCapital());
+			temp.setMoneda(newPais.getMoneda());
+			temp.setIdioma(newPais.getIdioma());
+			temp.setCantidadHabitante(newPais.getCantidadHabitante());
+
+			paisRepo.save(temp);
+
+			return 0;
+
+		} else if (!encontrado.isPresent() && newPais != null) {
+			paisRepo.save(newPais);
+			return 1;
+
+		} else {
+			return 2;
+		}
+
 	}
 
 }

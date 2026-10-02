@@ -1,0 +1,137 @@
+.inicio {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    background-image: url("/assets/mundito.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+.inicio::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.inicio .container {
+    position: relative;
+    z-index: 1;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.icono-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.icono-container i {
+    font-size: 6rem;
+    color: #06b6d4;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.titulo {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.titulo span {
+    display: block;
+    color: #06b6d4;
+}
+
+.descripcion {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #d1d5db;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.btn-info {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 28px;
+}
+
+.btn-info:hover {
+    background-color: #0891b2;
+    border-color: #0891b2;
+    color: #ffffff;
+}
+
+.creadores {
+    padding-top: 25px;
+}
+
+.creado-por {
+    color: #d1d5db;
+    margin-bottom: 15px;
+}
+
+.nombres {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nombres span {
+    background-color: rgba(31, 41, 55, 0.9);
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: #ffffff;
+}
+
+.nombres i {
+    color: #06b6d4;
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .titulo {
+        font-size: 2.2rem;
+    }
+
+    .icono-container i {
+        font-size: 4.5rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+
+    .nombres {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
