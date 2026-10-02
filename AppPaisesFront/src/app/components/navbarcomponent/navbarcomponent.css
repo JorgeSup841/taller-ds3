@@ -1,0 +1,21 @@
+
+.custom-navbar {
+  border-bottom: 3px aqua;
+  padding: 12px 0;
+
+}
+
+
+.logo-img {
+  width: auto;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
