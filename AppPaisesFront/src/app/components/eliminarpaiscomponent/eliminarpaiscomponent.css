@@ -1,0 +1,42 @@
+.eliminar-card {
+    border-radius: 15px;
+}
+
+/* Icono principal */
+.icono-eliminar {
+    font-size: 42px;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+
+/* Botones */
+.btn {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+    transition: all 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    transform: translateY(-2px);
+}
+
+/* Mensajes */
+.alert {
+    border-radius: 10px;
+}
