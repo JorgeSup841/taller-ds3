@@ -5,12 +5,11 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing-module";
 import { App } from "./app";
+
 import { Navbarcomponent } from "./components/navbarcomponent/navbarcomponent";
 import { Footercomponent } from "./components/footercomponent/footercomponent";
 import { Contentcomponent } from "./components/contentcomponent/contentcomponent";
 import { Eliminarpaiscomponent } from "./components/eliminarpaiscomponent/eliminarpaiscomponent";
-
-import { FormsModule } from "@angular/forms";
 import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
 
 @NgModule({
@@ -20,6 +19,7 @@ import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
     Footercomponent,
     Contentcomponent,
     Eliminarpaiscomponent,
+    Crearcomponent
   ],
 
   imports: [
@@ -33,10 +33,8 @@ import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
     provideBrowserGlobalErrorListeners()
   ],
 
-    Crearcomponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [provideBrowserGlobalErrorListeners()],
-  bootstrap: [App],
+  bootstrap: [
+    App
+  ]
 })
 export class AppModule {}
