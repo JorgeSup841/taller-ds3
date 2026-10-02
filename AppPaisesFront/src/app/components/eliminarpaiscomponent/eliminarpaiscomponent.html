@@ -2,30 +2,30 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-12 col-md-8 col-lg-6">
+        <div class="col-12 col-md-7 col-lg-5">
 
-            <div class="card shadow-sm border-0 animate__animated animate__fadeIn">
+            <div class="card border-0 shadow animate__animated animate__fadeIn">
 
                 <div class="card-body p-4">
 
                     <div class="text-center mb-4">
 
-                        <i class="fa-solid fa-trash-can text-danger fs-1"></i>
+                        <i class="fa-solid fa-trash-can text-info icono-basura"></i>
 
-                        <h2 class="fw-bold mt-3">
+                        <h2 class="fw-bold mt-3 text-white mb-2">
                             Eliminar país
                         </h2>
 
-                        <p class="text-muted">
+                        <p class="text-secondary mb-0">
                             Busca el país que deseas eliminar.
                         </p>
 
                     </div>
 
-                    <div class="mb-4">
+                    <div class="search-section mb-4">
 
-                        <label class="form-label fw-semibold">
-                            <i class="fa-solid fa-magnifying-glass me-2"></i>
+                        <label class="search-label">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                             Buscar por
                         </label>
 
@@ -36,8 +36,8 @@
                                 <button
                                         type="button"
                                         class="btn w-100"
-                                        [class.btn-danger]="metodo === 'nombre'"
-                                        [class.btn-outline-danger]="metodo !== 'nombre'"
+                                        [class.btn-info]="metodo === 'nombre'"
+                                        [class.btn-outline-info]="metodo !== 'nombre'"
                                         (click)="metodo = 'nombre'">
 
                                     <i class="fa-solid fa-earth-americas me-2"></i>
@@ -52,8 +52,8 @@
                                 <button
                                         type="button"
                                         class="btn w-100"
-                                        [class.btn-danger]="metodo === 'capital'"
-                                        [class.btn-outline-danger]="metodo !== 'capital'"
+                                        [class.btn-info]="metodo === 'capital'"
+                                        [class.btn-outline-info]="metodo !== 'capital'"
                                         (click)="metodo = 'capital'">
 
                                     <i class="fa-solid fa-city me-2"></i>
@@ -75,21 +75,29 @@
 
                             <label
                                     for="nombre"
-                                    class="form-label fw-semibold">
+                                    class="form-label">
 
                                 <i class="fa-solid fa-earth-americas me-2"></i>
                                 Nombre del país
 
                             </label>
 
-                            <input
-                                    type="text"
-                                    id="nombre"
-                                    name="nombre"
-                                    class="form-control form-control-lg"
-                                    placeholder="Ej. Colombia"
-                                    [(ngModel)]="nombre"
-                                    autocomplete="off">
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-globe"></i>
+                                </span>
+
+                                <input
+                                        type="text"
+                                        id="nombre"
+                                        name="nombre"
+                                        class="form-control"
+                                        placeholder="Ej. Colombia"
+                                        [(ngModel)]="nombre"
+                                        autocomplete="off">
+
+                            </div>
 
                         </div>
 
@@ -99,21 +107,29 @@
 
                             <label
                                     for="capital"
-                                    class="form-label fw-semibold">
+                                    class="form-label">
 
                                 <i class="fa-solid fa-city me-2"></i>
                                 Capital
 
                             </label>
 
-                            <input
-                                    type="text"
-                                    id="capital"
-                                    name="capital"
-                                    class="form-control form-control-lg"
-                                    placeholder="Ej. Bogotá"
-                                    [(ngModel)]="capital"
-                                    autocomplete="off">
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-building"></i>
+                                </span>
+
+                                <input
+                                        type="text"
+                                        id="capital"
+                                        name="capital"
+                                        class="form-control"
+                                        placeholder="Ej. Bogotá"
+                                        [(ngModel)]="capital"
+                                        autocomplete="off">
+
+                            </div>
 
                         </div>
 
@@ -121,7 +137,7 @@
 
                             <button
                                     type="submit"
-                                    class="btn btn-danger btn-lg">
+                                    class="btn btn-info btn-lg">
 
                                 <i class="fa-solid fa-trash-can me-2"></i>
                                 Eliminar país
@@ -138,32 +154,21 @@
                             [class.alert-success]="exito"
                             [class.alert-danger]="!exito">
 
-                        <div class="d-flex align-items-center">
+                        <i
+                                class="fa-solid me-2"
+                                [class.fa-circle-check]="exito"
+                                [class.fa-circle-xmark]="!exito">
+                        </i>
 
-                            <i
-                                    class="fa-solid fa-lg me-3"
-                                    [class.fa-circle-check]="exito"
-                                    [class.fa-circle-xmark]="!exito">
-                            </i>
+                        {{ mensaje }}
 
-                            <div>
+                        <small
+                                *ngIf="codigoHttp > 0"
+                                class="d-block mt-1">
 
-                                <strong>
-                                    {{ exito ? 'Operación exitosa' : 'Error' }}
-                                </strong>
+                            Código HTTP: {{ codigoHttp }}
 
-                                <div>
-                                    {{ mensaje }}
-                                </div>
-
-                                <small *ngIf="codigoHttp > 0">
-                                    Código HTTP:
-                                    <strong>{{ codigoHttp }}</strong>
-                                </small>
-
-                            </div>
-
-                        </div>
+                        </small>
 
                     </div>
 
