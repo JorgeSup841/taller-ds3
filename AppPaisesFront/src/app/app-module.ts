@@ -10,6 +10,9 @@ import { Footercomponent } from "./components/footercomponent/footercomponent";
 import { Contentcomponent } from "./components/contentcomponent/contentcomponent";
 import { Eliminarpaiscomponent } from "./components/eliminarpaiscomponent/eliminarpaiscomponent";
 
+import { FormsModule } from "@angular/forms";
+import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
+
 @NgModule({
   declarations: [
     App,
@@ -30,6 +33,10 @@ import { Eliminarpaiscomponent } from "./components/eliminarpaiscomponent/elimin
     provideBrowserGlobalErrorListeners()
   ],
 
+    Crearcomponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
 export class AppModule {}

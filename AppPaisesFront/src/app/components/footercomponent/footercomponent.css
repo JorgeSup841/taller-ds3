@@ -1,0 +1,21 @@
+footer {
+    background-color: #111827;
+    border-top: 3px solid #06b6d4 !important;
+    color: #e5e7eb;
+    padding: 1.8rem 2rem;
+    margin-top: -500px;
+    width: 100%;
+
+}
+
+footer a,
+footer span {
+    color: #9ca3af !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+footer a:hover {
+    color: #3b82f6 !important;
+}
