@@ -1,42 +1,104 @@
-.eliminar-card {
-    border-radius: 15px;
-}
-
-/* Icono principal */
-.icono-eliminar {
-    font-size: 42px;
-}
-
-/* Inputs */
-.form-control {
+.card {
+    background-color: #1f2937;
     border-radius: 10px;
 }
 
-.form-control:focus {
-    border-color: #dc3545;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+.card-body {
+    color: #ffffff;
 }
 
-/* Botones */
-.btn {
-    border-radius: 10px;
-    transition: all 0.2s ease;
+.icono-basura {
+    font-size: 4rem;
+    color: #06b6d4;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
+.search-section {
+    background-color: #111827;
+    padding: 18px;
+    border-radius: 8px;
 }
 
-/* Botón eliminar */
-.btn-eliminar {
-    transition: all 0.2s ease;
+.search-label {
+    display: block;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
-.btn-eliminar:hover {
-    transform: translateY(-2px);
+.search-label i {
+    color: #06b6d4;
+    margin-right: 8px;
 }
 
-/* Mensajes */
+form {
+    background-color: #1f2937;
+    padding: 0;
+    color: #ffffff;
+    width: 100%;
+}
+
+form .form-label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+form .form-label i {
+    color: #06b6d4;
+}
+
+form .form-control {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    color: #ffffff;
+    padding: 10px 12px;
+}
+
+form .form-control::placeholder {
+    color: #9ca3af;
+}
+
+form .form-control:focus {
+    background-color: #1f2937;
+    border-color: #06b6d4;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+form .input-group-text {
+    background-color: #111827;
+    border: 1px solid #4b5563;
+    color: #06b6d4;
+}
+
+.btn-info {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn-info:hover {
+    background-color: #0891b2;
+    border-color: #0891b2;
+    color: #ffffff;
+}
+
+.btn-outline-info {
+    border-color: #06b6d4;
+    color: #06b6d4;
+    font-weight: 600;
+}
+
+.btn-outline-info:hover {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+    color: #ffffff;
+}
+
 .alert {
-    border-radius: 10px;
+    border: none;
+}
+
+.text-info {
+    color: #06b6d4 !important;
 }
