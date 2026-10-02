@@ -1,0 +1,105 @@
+<div class="container py-5">
+
+    <div class="card border-0 shadow animate__animated animate__fadeIn">
+
+        <div class="card-body p-4">
+
+            <div class="text-center mb-4">
+
+                <i class="fa-solid fa-earth-americas icono-pais"></i>
+
+                <h2 class="fw-bold mt-3 text-white mb-2">
+                    Países
+                </h2>
+
+                <p class="text-secondary mb-0">
+                    Lista de países registrados.
+                </p>
+
+            </div>
+
+            <div
+                    *ngIf="mensaje"
+                    class="alert alert-danger">
+
+                <i class="fa-solid fa-circle-xmark me-2"></i>
+                {{ mensaje }}
+
+                <small class="d-block mt-1">
+                    Código HTTP: {{ codigoHttp }}
+                </small>
+
+            </div>
+
+            <div
+                    *ngIf="paises.length > 0"
+                    class="table-responsive">
+
+                <table class="table table-dark table-hover align-middle">
+
+                    <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Capital</th>
+                        <th>Moneda</th>
+                        <th>Idiomas</th>
+                        <th>Habitantes</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    <tr *ngFor="let pais of paises">
+
+                        <td>
+                            {{ pais.id }}
+                        </td>
+
+                        <td>
+                            {{ pais.nombre }}
+                        </td>
+
+                        <td>
+                            {{ pais.capital }}
+                        </td>
+
+                        <td>
+                            {{ pais.moneda }}
+                        </td>
+
+                        <td>
+                            {{ pais.idiomas }}
+                        </td>
+
+                        <td>
+                            {{ pais.habitantes | number }}
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div
+                    *ngIf="paises.length === 0 && !mensaje"
+                    class="text-center text-secondary py-4">
+
+                <i class="fa-solid fa-folder-open fa-2x mb-3"></i>
+
+                <p class="mb-0">
+                    No hay países registrados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

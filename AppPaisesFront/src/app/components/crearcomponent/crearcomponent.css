@@ -1,54 +1,140 @@
+
+.card {
+    background-color: #1f2937;
+    border-radius: 10px;
+}
+
+.card-body {
+    color: #ffffff;
+}
+
+.icono-pais {
+    font-size: 4rem;
+    color: #06b6d4;
+}
+
 form {
     background-color: #1f2937;
-    padding: 30px;
-    border-radius: 10px;
     color: #ffffff;
     width: 100%;
 }
 
-form .form-control {
+.form-label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.form-label i {
+    color: #06b6d4;
+}
+
+.form-control {
     background-color: #374151;
     border: 1px solid #4b5563;
     color: #ffffff;
+    padding: 10px 12px;
 }
 
-form .form-control:focus {
+.form-control::placeholder {
+    color: #9ca3af;
+}
+
+.form-control:focus {
     background-color: #1f2937;
     border-color: #06b6d4;
     color: #ffffff;
-    box-shadow: none;
+    box-shadow: 0 0 0 0.15rem rgba(6, 182, 212, 0.15);
 }
 
-form .input-group-text {
+.input-group-text {
     background-color: #111827;
     border: 1px solid #4b5563;
     color: #06b6d4;
 }
 
-form .btn-primary {
+.btn-info {
     background-color: #06b6d4;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    font-weight: bold;
+    border-color: #06b6d4;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-form .btn-primary:hover {
+.btn-info:hover {
     background-color: #0891b2;
+    border-color: #0891b2;
+    color: #ffffff;
 }
 
+.alert {
+    border: none;
+}
 
 .carrusel-limite {
-    height: 100%;
-    max-height: 560px;
+    width: 100%;
+    max-height: 520px;
+    background-color: #111827;
 }
 
-.carrusel-limite .carousel-inner,
-.carrusel-limite .carousel-item {
-    height: 560px;
+.carousel-inner {
+    height: 520px;
 }
 
-.carrusel-limite img {
+.carousel-item {
+    height: 520px;
+}
+
+.carousel-item img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(17, 24, 39, 0.75);
+    border-radius: 50%;
+    padding: 22px;
+    background-size: 50%;
+}
+
+.carousel-indicators button {
+    background-color: #06b6d4;
+}
+
+.text-info {
+    color: #06b6d4 !important;
+}
+
+@media (max-width: 991px) {
+
+    .carrusel-limite {
+        max-height: 400px;
+    }
+
+    .carousel-inner,
+    .carousel-item {
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .card-body {
+        padding: 1.25rem !important;
+    }
+
+    .icono-pais {
+        font-size: 3.5rem;
+    }
+
+    .carrusel-limite {
+        max-height: 300px;
+    }
+
+    .carousel-inner,
+    .carousel-item {
+        height: 300px;
+    }
+
 }

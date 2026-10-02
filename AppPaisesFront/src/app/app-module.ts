@@ -11,6 +11,8 @@ import { Footercomponent } from "./components/footercomponent/footercomponent";
 import { Contentcomponent } from "./components/contentcomponent/contentcomponent";
 import { Eliminarpaiscomponent } from "./components/eliminarpaiscomponent/eliminarpaiscomponent";
 import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
+import { Actualizarpaiscomponent } from "./components/actualizarpaiscomponent/actualizarpaiscomponent";
+import { Mostrarpaiscomponent } from "./components/mostrarpaiscomponent/mostrarpaiscomponent";
 
 @NgModule({
   declarations: [
@@ -19,22 +21,15 @@ import { Crearcomponent } from "./components/crearcomponent/crearcomponent";
     Footercomponent,
     Contentcomponent,
     Eliminarpaiscomponent,
-    Crearcomponent
+    Crearcomponent,
+    Actualizarpaiscomponent,
+    Mostrarpaiscomponent,
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 
-  providers: [
-    provideBrowserGlobalErrorListeners()
-  ],
+  providers: [provideBrowserGlobalErrorListeners()],
 
-  bootstrap: [
-    App
-  ]
+  bootstrap: [App],
 })
 export class AppModule {}

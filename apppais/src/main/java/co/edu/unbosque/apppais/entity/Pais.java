@@ -21,7 +21,7 @@ public class Pais {
 	@Column(unique = true, length = 50)
 	private String moneda;
 	@Column( length = 50)
-	private  String indioma;
+	private  String idioma;
 	@Column(nullable = false)
 	private long cantidadHabitante;
 	
@@ -29,12 +29,12 @@ public class Pais {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pais(String nombre, String capital, String moneda, String indioma, long cantidadHabitante) {
+	public Pais(String nombre, String capital, String moneda, String idioma, long cantidadHabitante) {
 		super();
 		this.nombre = nombre;
 		this.capital = capital;
 		this.moneda = moneda;
-		this.indioma = indioma;
+		this.idioma = idioma;
 		this.cantidadHabitante = cantidadHabitante;
 	}
 
@@ -70,12 +70,12 @@ public class Pais {
 		this.moneda = moneda;
 	}
 
-	public String getIndioma() {
-		return indioma;
+	public String getIdioma() {
+		return idioma;
 	}
 
-	public void setIndioma(String indioma) {
-		this.indioma = indioma;
+	public void setIdioma(String indioma) {
+		this.idioma = indioma;
 	}
 
 	public long getCantidadHabitante() {
@@ -89,12 +89,12 @@ public class Pais {
 	@Override
 	public String toString() {
 		return "Pais [id=" + id + ", nombre=" + nombre + ", capital=" + capital + ", moneda=" + moneda + ", indioma="
-				+ indioma + ", cantidadHabitante=" + cantidadHabitante + "]";
+				+ idioma + ", cantidadHabitante=" + cantidadHabitante + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Long.valueOf(cantidadHabitante), capital, Long.valueOf(id), indioma, moneda, nombre);
+		return Objects.hash(Long.valueOf(cantidadHabitante), capital, Long.valueOf(id), idioma, moneda, nombre);
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class Pais {
 			return false;
 		Pais other = (Pais) obj;
 		return cantidadHabitante == other.cantidadHabitante && Objects.equals(capital, other.capital) && id == other.id
-				&& Objects.equals(indioma, other.indioma) && Objects.equals(moneda, other.moneda)
+				&& Objects.equals(idioma, other.idioma) && Objects.equals(moneda, other.moneda)
 				&& Objects.equals(nombre, other.nombre);
 	}
 	

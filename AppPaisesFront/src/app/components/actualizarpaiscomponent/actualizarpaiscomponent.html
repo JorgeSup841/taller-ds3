@@ -1,0 +1,320 @@
+<div class="container py-4">
+
+    <div class="row justify-content-center align-items-center g-4">
+
+        <div class="col-12 col-lg-7">
+
+            <div class="card border-0 shadow animate__animated animate__fadeIn">
+
+                <div class="card-body p-4">
+
+                    <div class="text-center mb-4">
+
+                        <i class="fa-solid fa-pen-to-square text-info icono-editar"></i>
+
+                        <h2 class="fw-bold mt-3 text-white mb-2">
+                            Actualizar país
+                        </h2>
+
+                        <p class="text-secondary mb-0">
+                            Busca el país que deseas actualizar.
+                        </p>
+
+                    </div>
+
+                    <div class="search-section mb-4">
+
+                        <label class="search-label">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Buscar por
+                        </label>
+
+                        <div class="row g-2">
+
+                            <div class="col-6">
+
+                                <button
+                                        type="button"
+                                        class="btn w-100"
+                                        [class.btn-info]="metodo === 'nombre'"
+                                        [class.btn-outline-info]="metodo !== 'nombre'"
+                                        (click)="metodo = 'nombre'">
+
+                                    <i class="fa-solid fa-earth-americas me-2"></i>
+                                    Nombre
+
+                                </button>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <button
+                                        type="button"
+                                        class="btn w-100"
+                                        [class.btn-info]="metodo === 'id'"
+                                        [class.btn-outline-info]="metodo !== 'id'"
+                                        (click)="metodo = 'id'">
+
+                                    <i class="fa-solid fa-hashtag me-2"></i>
+                                    ID
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <form (ngSubmit)="actualizar()">
+
+                        <div
+                                *ngIf="metodo === 'nombre'"
+                                class="animate__animated animate__fadeIn">
+
+                            <label
+                                    for="nombreOriginal"
+                                    class="form-label">
+
+                                <i class="fa-solid fa-earth-americas me-2"></i>
+                                Nombre actual
+
+                            </label>
+
+                            <div class="input-group mb-3">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-globe"></i>
+                                </span>
+
+                                <input
+                                        type="text"
+                                        id="nombreOriginal"
+                                        name="nombreOriginal"
+                                        class="form-control"
+                                        placeholder="Ej. Colombia"
+                                        [(ngModel)]="nombreOriginal"
+                                        autocomplete="off">
+
+                            </div>
+
+                        </div>
+
+                        <div
+                                *ngIf="metodo === 'id'"
+                                class="animate__animated animate__fadeIn">
+
+                            <label
+                                    for="id"
+                                    class="form-label">
+
+                                <i class="fa-solid fa-hashtag me-2"></i>
+                                ID del país
+
+                            </label>
+
+                            <div class="input-group mb-3">
+
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-fingerprint"></i>
+                                </span>
+
+                                <input
+                                        type="number"
+                                        id="id"
+                                        name="id"
+                                        class="form-control"
+                                        placeholder="Ej. 1"
+                                        [(ngModel)]="id"
+                                        min="1">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-12">
+
+                                <label
+                                        for="nombre"
+                                        class="form-label">
+
+                                    <i class="fa-solid fa-earth-americas me-2"></i>
+                                    Nuevo nombre
+
+                                </label>
+
+                                <input
+                                        type="text"
+                                        id="nombre"
+                                        name="nombre"
+                                        class="form-control"
+                                        placeholder="Ej. Colombia"
+                                        [(ngModel)]="nombre"
+                                        autocomplete="off">
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <label
+                                        for="capital"
+                                        class="form-label">
+
+                                    <i class="fa-solid fa-city me-2"></i>
+                                    Capital
+
+                                </label>
+
+                                <input
+                                        type="text"
+                                        id="capital"
+                                        name="capital"
+                                        class="form-control"
+                                        placeholder="Ej. Bogotá"
+                                        [(ngModel)]="capital"
+                                        autocomplete="off">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label
+                                        for="moneda"
+                                        class="form-label">
+
+                                    <i class="fa-solid fa-coins me-2"></i>
+                                    Moneda
+
+                                </label>
+
+                                <input
+                                        type="text"
+                                        id="moneda"
+                                        name="moneda"
+                                        class="form-control"
+                                        placeholder="Ej. Peso colombiano"
+                                        [(ngModel)]="moneda"
+                                        autocomplete="off">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label
+                                        for="habitantes"
+                                        class="form-label">
+
+                                    <i class="fa-solid fa-users me-2"></i>
+                                    Habitantes
+
+                                </label>
+
+                                <input
+                                        type="number"
+                                        id="habitantes"
+                                        name="habitantes"
+                                        class="form-control"
+                                        placeholder="Ej. 52000000"
+                                        [(ngModel)]="habitantes"
+                                        min="0">
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <label
+                                        for="idiomas"
+                                        class="form-label">
+
+                                    <i class="fa-solid fa-language me-2"></i>
+                                    Idiomas
+
+                                </label>
+
+                                <input
+                                        type="text"
+                                        id="idiomas"
+                                        name="idiomas"
+                                        class="form-control"
+                                        placeholder="Ej. Español"
+                                        [(ngModel)]="idiomas"
+                                        autocomplete="off">
+
+                            </div>
+
+                        </div>
+
+                        <div class="d-grid mt-4">
+
+                            <button
+                                    type="submit"
+                                    class="btn btn-info btn-lg">
+
+                                <i class="fa-solid fa-pen-to-square me-2"></i>
+                                Actualizar país
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                    <div
+                            *ngIf="mensaje"
+                            class="alert mt-4 mb-0 animate__animated animate__fadeIn"
+                            [class.alert-success]="exito"
+                            [class.alert-danger]="!exito">
+
+                        <i
+                                class="fa-solid me-2"
+                                [class.fa-circle-check]="exito"
+                                [class.fa-circle-xmark]="!exito">
+                        </i>
+
+                        {{ mensaje }}
+
+                        <small
+                                *ngIf="codigoHttp > 0"
+                                class="d-block mt-1">
+
+                            Código HTTP: {{ codigoHttp }}
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-4">
+
+            <div class="panel-fotos">
+
+                <img
+                        src="assets/actualizar.jpg"
+                        alt="País"
+                        class="foto-actualizar">
+
+                <img
+                        src="assets/actualizar2.jpg"
+                        alt="País"
+                        class="foto-actualizar">
+
+                <img
+                        src="assets/actualizar3.jpg"
+                        alt="País"
+                        class="foto-actualizar">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
