@@ -13,12 +13,12 @@ import co.edu.unbosque.apppais.respository.PaisRepository;
 @Service
 public class PaisService {
 
-	private final PaisController paisController;
+	
 	@Autowired
 	private PaisRepository paisRepo;
 
-	public PaisService(PaisController paisController) {
-		this.paisController = paisController;
+	public PaisService() {
+		
 		// TODO Auto-generated constructor stub
 	}
 
