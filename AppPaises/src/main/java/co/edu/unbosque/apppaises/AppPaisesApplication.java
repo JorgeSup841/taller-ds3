@@ -1,4 +1,4 @@
-package co.edu.unbosque.AppPaises;
+package co.edu.unbosque.apppaises;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
