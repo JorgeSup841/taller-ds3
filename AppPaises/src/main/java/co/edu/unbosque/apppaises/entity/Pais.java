@@ -1,4 +1,4 @@
-package co.edu.unbosque.AppPaises.entity;
+package co.edu.unbosque.apppaises.entity;
 
 import java.util.Objects;
 
