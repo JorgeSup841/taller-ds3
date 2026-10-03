@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectorRef } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 
 import { Paisservice } from "../../service/paisservice";
@@ -7,7 +7,7 @@ import { Paisservice } from "../../service/paisservice";
   selector: "app-eliminarpaiscomponent",
   standalone: false,
   styleUrl: "./eliminarpaiscomponent.css",
-  templateUrl: "./eliminarpaiscomponent.html",
+  templateUrl: "./eliminarpaiscomponent.html"
 })
 export class Eliminarpaiscomponent {
 
@@ -20,83 +20,82 @@ export class Eliminarpaiscomponent {
   exito: boolean = false;
   codigoHttp: number = 0;
 
-  constructor(private paisService: Paisservice) {}
+  constructor(
+      private paisService: Paisservice,
+      private cd: ChangeDetectorRef
+  ) {}
 
   eliminar(): void {
-
     this.mensaje = "";
     this.codigoHttp = 0;
 
     if (this.metodo === "nombre") {
-      this.eliminarPorNombre();
+
+      if (this.nombre.trim() === "") {
+        this.mensaje = "Debe ingresar el nombre del país.";
+        this.exito = false;
+        return;
+      }
+
+      this.paisService.eliminarPorNombre(this.nombre.trim()).subscribe({
+        next: (respuesta) => {
+          this.codigoHttp = respuesta.status;
+          this.exito = true;
+          this.mensaje = "El país se eliminó correctamente.";
+          this.nombre = "";
+          this.cd.detectChanges();
+        },
+        error: (error: HttpErrorResponse) => {
+          this.exito = false;
+          this.codigoHttp = error.status;
+
+          if (error.status === 404) {
+            this.mensaje = "No existe un país con ese nombre.";
+          } else if (error.status === 400) {
+            this.mensaje = "Los datos enviados no son válidos.";
+          } else if (error.status === 500) {
+            this.mensaje = "Error interno del servidor.";
+          } else {
+            this.mensaje = "No se pudo eliminar el país.";
+          }
+
+          this.cd.detectChanges();
+        }
+      });
+
     } else {
-      this.eliminarPorCapital();
-    }
-  }
 
-  eliminarPorNombre(): void {
-
-    if (this.nombre.trim() === "") {
-      this.mensaje = "Debe ingresar el nombre del país.";
-      this.exito = false;
-      return;
-    }
-
-    this.paisService.eliminarPorNombre(this.nombre.trim()).subscribe({
-
-      next: () => {
-        this.mensaje = "El país fue eliminado correctamente.";
-        this.exito = true;
-        this.codigoHttp = 200;
-        this.nombre = "";
-      },
-
-      error: (error: HttpErrorResponse) => {
+      if (this.capital.trim() === "") {
+        this.mensaje = "Debe ingresar la capital.";
         this.exito = false;
-        this.codigoHttp = error.status;
-
-        if (error.status === 404) {
-          this.mensaje = "No se encontró un país con ese nombre.";
-        } else {
-          this.mensaje = "Ocurrió un error al eliminar el país.";
-        }
-
-        console.error("Error al eliminar por nombre:", error);
+        return;
       }
 
-    });
-  }
+      this.paisService.eliminarPorCapital(this.capital.trim()).subscribe({
+        next: (respuesta) => {
+          this.codigoHttp = respuesta.status;
+          this.exito = true;
+          this.mensaje = "El país se eliminó correctamente.";
+          this.capital = "";
+          this.cd.detectChanges();
+        },
+        error: (error: HttpErrorResponse) => {
+          this.exito = false;
+          this.codigoHttp = error.status;
 
-  eliminarPorCapital(): void {
+          if (error.status === 404) {
+            this.mensaje = "No existe un país con esa capital.";
+          } else if (error.status === 400) {
+            this.mensaje = "Los datos enviados no son válidos.";
+          } else if (error.status === 500) {
+            this.mensaje = "Error interno del servidor.";
+          } else {
+            this.mensaje = "No se pudo eliminar el país.";
+          }
 
-    if (this.capital.trim() === "") {
-      this.mensaje = "Debe ingresar la capital.";
-      this.exito = false;
-      return;
-    }
-
-    this.paisService.eliminarPorCapital(this.capital.trim()).subscribe({
-
-      next: () => {
-        this.mensaje = "El país fue eliminado correctamente.";
-        this.exito = true;
-        this.codigoHttp = 200;
-        this.capital = "";
-      },
-
-      error: (error: HttpErrorResponse) => {
-        this.exito = false;
-        this.codigoHttp = error.status;
-
-        if (error.status === 404) {
-          this.mensaje = "No se encontró un país con esa capital.";
-        } else {
-          this.mensaje = "Ocurrió un error al eliminar el país.";
+          this.cd.detectChanges();
         }
-
-        console.error("Error al eliminar por capital:", error);
-      }
-
-    });
+      });
+    }
   }
 }

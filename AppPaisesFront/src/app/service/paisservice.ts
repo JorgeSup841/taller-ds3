@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import {
+    HttpClient,
+    HttpParams,
+    HttpResponse
+} from "@angular/common/http";
 import { Observable } from "rxjs";
 
 import { Pais } from "../models/pais/pais";
@@ -21,42 +25,81 @@ export class Paisservice {
         return this.http.get<number>(`${this.url}/contar`);
     }
 
-    crear(pais: Pais): Observable<any> {
+    crear(pais: Pais): Observable<HttpResponse<string>> {
         return this.http.post(
             `${this.url}/crear`,
-            pais
+            pais,
+            {
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 
-    eliminarPorId(id: number): Observable<any> {
+    eliminarPorId(id: number): Observable<HttpResponse<string>> {
+        const params = new HttpParams().set("id", id);
+
         return this.http.delete(
-            `${this.url}/eliminarporid/${id}`
+            `${this.url}/eliminarporid`,
+            {
+                params,
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 
-    eliminarPorNombre(nombre: string): Observable<any> {
+    eliminarPorNombre(nombre: string): Observable<HttpResponse<string>> {
+        const params = new HttpParams().set("nombre", nombre);
+
         return this.http.delete(
-            `${this.url}/eliminarpornombre/${encodeURIComponent(nombre)}`
+            `${this.url}/eliminarpornombre`,
+            {
+                params,
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 
-    eliminarPorCapital(capital: string): Observable<any> {
+    eliminarPorCapital(capital: string): Observable<HttpResponse<string>> {
+        const params = new HttpParams().set("capital", capital);
+
         return this.http.delete(
-            `${this.url}/eliminarporcapital/${encodeURIComponent(capital)}`
+            `${this.url}/eliminarporcapital`,
+            {
+                params,
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 
-    actualizarPorId(id: number, pais: Pais): Observable<any> {
+    actualizarPorId(id: number, pais: Pais): Observable<HttpResponse<string>> {
+        const params = new HttpParams().set("id", id);
+
         return this.http.put(
-            `${this.url}/actualizarporid/${id}`,
-            pais
+            `${this.url}/actualizarporid`,
+            pais,
+            {
+                params,
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 
-    actualizarPorNombre(nombre: string, pais: Pais): Observable<any> {
+    actualizarPorNombre(nombre: string, pais: Pais): Observable<HttpResponse<string>> {
+        const params = new HttpParams().set("nombre", nombre);
+
         return this.http.put(
-            `${this.url}/actualizarpornombre/${encodeURIComponent(nombre)}`,
-            pais
+            `${this.url}/actualizarpornombre`,
+            pais,
+            {
+                params,
+                observe: "response",
+                responseType: "text"
+            }
         );
     }
 }

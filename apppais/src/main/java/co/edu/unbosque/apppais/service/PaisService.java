@@ -82,22 +82,27 @@ public class PaisService {
 	}
 
 	public int eliminarPorNombre(String nombre) {
-		if (paisRepo.existsByNombre(nombre)) {
-			paisRepo.deleteByNombre(nombre);
-			return 0;
-		} else {
-			return 1;
-		}
 
+	    Optional<Pais> encontrado = paisRepo.findByNombre(nombre);
+
+	    if (encontrado.isPresent()) {
+	        paisRepo.delete(encontrado.get());
+	        return 0;
+	    }
+
+	    return 1;
 	}
 
 	public int eliminarPorCapital(String capital) {
-		if (paisRepo.existsByCapital(capital)) {
-			paisRepo.deleteByCapital(capital);
-			return 0;
-		} else {
-			return 1;
-		}
+
+	    Optional<Pais> encontrado = paisRepo.findByCapital(capital);
+
+	    if (encontrado.isPresent()) {
+	        paisRepo.delete(encontrado.get());
+	        return 0;
+	    }
+
+	    return 1;
 	}
 
 	public int actualizarPorNombre(String nombre, Pais newPais) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,ChangeDetectorRef,inject } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 
 import { Pais } from "../../models/pais/pais";
@@ -12,6 +12,7 @@ import { Paisservice } from "../../service/paisservice";
 })
 export class Mostrarpaiscomponent implements OnInit {
 
+  cdr = inject(ChangeDetectorRef);
   paises: Pais[] = [];
   mensaje: string = "";
   codigoHttp: number = 0;
@@ -27,17 +28,25 @@ export class Mostrarpaiscomponent implements OnInit {
     this.paisService.mostrar().subscribe({
 
       next: (paises: Pais[]) => {
+
+        console.log("PAISES RECIBIDOS:", paises);
+
         this.paises = paises;
         this.codigoHttp = 200;
         this.mensaje = "";
+
+        this.cdr.detectChanges();
+
       },
 
       error: (error: HttpErrorResponse) => {
+
+        console.error("ERROR COMPLETO:", error);
+
         this.paises = [];
         this.codigoHttp = error.status;
         this.mensaje = "Ocurrió un error al cargar los países.";
 
-        console.error("Error al mostrar países:", error);
       }
 
     });
