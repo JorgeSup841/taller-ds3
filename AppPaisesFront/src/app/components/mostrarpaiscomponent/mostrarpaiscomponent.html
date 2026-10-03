@@ -23,6 +23,7 @@
                     class="alert alert-danger">
 
                 <i class="fa-solid fa-circle-xmark me-2"></i>
+
                 {{ mensaje }}
 
                 <small class="d-block mt-1">
@@ -40,12 +41,19 @@
                     <thead>
 
                     <tr>
+
                         <th>ID</th>
+
                         <th>Nombre</th>
+
                         <th>Capital</th>
+
                         <th>Moneda</th>
-                        <th>Idiomas</th>
-                        <th>Habitantes</th>
+
+                        <th>Idioma</th>
+
+                        <th>Cantidad de habitantes</th>
+
                     </tr>
 
                     </thead>
@@ -71,11 +79,11 @@
                         </td>
 
                         <td>
-                            {{ pais.idiomas }}
+                            {{ pais.idioma }}
                         </td>
 
                         <td>
-                            {{ pais.habitantes | number }}
+                            {{ pais.cantidadHabitante | number }}
                         </td>
 
                     </tr>

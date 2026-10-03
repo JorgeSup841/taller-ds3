@@ -3,6 +3,6 @@ export interface Pais {
     nombre: string;
     capital: string;
     moneda: string;
-    idiomas: string;
-    habitantes: number;
+    idioma: string;
+    cantidadHabitante: number;
 }

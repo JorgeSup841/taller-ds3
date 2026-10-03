@@ -7,15 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import co.edu.unbosque.apppais.entity.Pais;
 
 public interface PaisRepository extends CrudRepository<Pais, Long>{
-
-	public void deleteByNombre(String name);
-	
-	public void deleteByCapital(String capital);
 	
 	public boolean existsByNombre(String nombre);
 	public boolean existsByCapital(String capital);
 	
 	public Optional<Pais> findByNombre(String nombre);
+	public Optional<Pais> findByCapital(String capital);
 
 	
 }
